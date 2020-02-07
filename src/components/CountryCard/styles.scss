@@ -1,0 +1,34 @@
+@mixin card-shadow {
+    -webkit-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.75);
+  }
+  
+  .CountryCard {
+    &__card {
+      padding: 1rem;
+      border: 1px solid black;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      margin: 1rem;
+      max-width: 30rem;
+      
+      transition: all 200ms ease-in;
+  
+      &:hover {
+        @include card-shadow;
+        transform: scale(1.02);
+      }
+  
+      &-types {
+        list-style-type: none;
+        padding-left: 0;
+      }
+  
+      h3,
+      h4 {
+        margin: 0.5rem;
+      }
+    }
+  }
+  
