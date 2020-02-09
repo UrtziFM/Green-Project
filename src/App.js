@@ -6,7 +6,7 @@ import Country from "./containers/Country";
 // import PokemonProfile from "./containers/PokemonProfile";
 import Test from "./containers/Test";
 
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 
 

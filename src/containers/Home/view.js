@@ -1,11 +1,16 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 
+import logo from '../../logo.svg';
+
 function Home() {
   return (
     <>
-      <h1>Welcome to Green Project</h1>
-      <h3>Fetch all countries you want</h3>
+      <div className="App">
+      <header className="App-header">
+      <img src={logo} className="App-logo" alt="logo" />
+      </header>
+      </div>
       <ul>
         <li>
           <Link to="/country">Country</Link>
