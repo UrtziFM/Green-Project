@@ -2,27 +2,23 @@ import axios from 'axios';
 
 const baseUrl = 'https://restcountries.eu/rest/v2/name/';
 
-const buildUrl = name => `${baseUrl}${name}?fullText=true/`;
+const buildUrl = id => `${baseUrl}${id}/`;
 
-function formatTypes(types) {
-  return types.map(({ type }) => type.name);
-}
 
 function formatCountry(country) {
-  const { name, capital, population, types, flag } = country;
-  const { front_default } = flag;
+  const { name, capital, population, flag } = country;
+
   
   return {
     name,
     capital,
     population,
-    types: formatTypes(types),
-    image: front_default,
+    flag,
   }
 }
 
-export async function getCountryByName(name) {
-  const url = buildUrl(name);
+export async function getCountryById(id) {
+  const url = buildUrl(id);
 
   const { data } = await axios.get(url);
   return formatCountry(data);

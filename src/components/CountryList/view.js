@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
 import { CountryContext, addCountry } from "../../context/countryContext";
-import { getCountryByName } from "../../Services/countriesApi";
+import { getCountryById } from "../../Services/countriesApi";
 
 import CountryCard from "../CountryCard";
 import FetchButton from "../FetchButton";
@@ -14,13 +14,13 @@ function CountryList() {
 
 
 
-  function handleFetchCountry(name) {
+  function handleFetchCountry(id) {
     async function fetchCountry() {
-      const country = await getCountryByName(name);
+      const country = await getCountryById(id);
       dispatch(addCountry(country));
     }
 
-    const hasCountry = countryList.find(({ name: ctName }) => ctName === name);
+    const hasCountry = countryList.find(({ id: ctId }) => ctId === id);
     if (!hasCountry) {
       fetchCountry();
     }
@@ -34,7 +34,7 @@ function CountryList() {
       />
       <ul className="CountryList__main-list">
         {countryList.map(country => (
-          <CountryCard key={country.name} {...country} />
+          <CountryCard key={country.id} {...country} />
         ))}
       </ul>
     </>

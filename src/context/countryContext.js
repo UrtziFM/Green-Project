@@ -21,9 +21,9 @@ export function addCountry(country) {
 }
 
 // Selectors
-export const getCountryByName = (state, name) => {
+export const getCountryById = (state, id) => {
   const { countryList } = state;
-  return countryList.find(({ name: ctName }) => `${ctName}` === `${name}`);
+  return countryList.find(({ name: ctId }) => `${ctId}` === `${id}`);
 }
 
 // Reducer

@@ -16,7 +16,7 @@ function Country({ match }) {
       <CountryContextProvider>
         <Switch>
           <Route path={`${match.path}/list`} exact component={CountryList} />
-          <Route path={`${match.path}/:name`} exact component={CountryProfile} />
+          <Route path={`${match.path}/:id`} exact component={CountryProfile} />
         </Switch>
       </CountryContextProvider>
     </div>

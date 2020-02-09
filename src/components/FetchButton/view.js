@@ -19,7 +19,7 @@ function FetchButton({ initialCounter, onFetch }) {
 
   return (
     <div>
-      <h4>Current name: {counter}</h4>
+      <h4>Current Id: {counter}</h4>
       <button type="button" onClick={increaseCounter}>
         Fetch a new Country
       </button>

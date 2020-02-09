@@ -3,29 +3,30 @@ import PropTypes from "prop-types";
 
 import CountryCard from "../CountryCard";
 
-import { getCountryByName as fetchCountryByName } from "../../Services/countriesApi";
+import { getCountryById as fetchCountryById } from "../../Services/countriesApi";
 import {
   CountryContext,
   addCountry,
-  getCountryByName
+  getCountryById
 } from "../../context/countryContext";
 
 function CountryProfile({ match }) {
   const [state, dispatch] = useContext(CountryContext);
 
-  const { name } = match.params;
-  const country = getCountryByName(state, name);
+  const { id } = match.params;
+  const country = getCountryById(state, id);
 
   useEffect(() => {
     async function fetchCountry() {
-      const country = await fetchCountryByName(name);
+      const country = await fetchCountryById(id);
       dispatch(addCountry(country));
     }
 
     if (!country) {
+      console.log(country);
       fetchCountry();
     }
-  }, [name, country, dispatch]);
+  }, [id, country, dispatch]);
 
   return country ? <CountryCard {...country} /> : <h3>Loading country...</h3>;
 }
@@ -33,7 +34,7 @@ function CountryProfile({ match }) {
 CountryProfile.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      name: PropTypes.string
+      id: PropTypes.string
     })
   }).isRequired
 };
