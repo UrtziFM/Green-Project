@@ -1,9 +1,9 @@
 import React, { useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 
-import CountryCard from "../PokemonCard";
+import CountryCard from "../CountryCard";
 
-import { getPokemonByName as fetchCountryByName } from "../../Services/countriesApi";
+import { getCountryByName as fetchCountryByName } from "../../Services/countriesApi";
 import {
   CountryContext,
   addCountry,

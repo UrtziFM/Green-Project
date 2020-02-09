@@ -9,7 +9,7 @@ function formatTypes(types) {
 }
 
 function formatCountry(country) {
-  const { name, capital, population, flag } = country;
+  const { name, capital, population, types, flag } = country;
   const { front_default } = flag;
   
   return {
